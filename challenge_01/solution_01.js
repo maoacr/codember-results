@@ -1,11 +1,25 @@
 import { message } from "./message_01";
 
-let array = message.toLowerCase().split(" ");
+let array = words.toLowerCase().split(" ");
 
-function countWords(arr) {
-  let result = "";
-  for (let i = 0; i <= arr.length; i++) {
-    arr[i];
+function countWords(array) {
+  let listaCount = {};
+  for (let i = 0; i < array.length; i++) {
+    let elemento = array[i];
+    if (listaCount[elemento]) {
+      listaCount[elemento] += 1;
+    } else {
+      listaCount[elemento] = 1;
+    }
   }
-  return "Estoy listo para resolverlo";
+  let stringFinal = "";
+  let llaves = Object.keys(listaCount);
+  for (let i = 0; i < llaves.length; i++) {
+    let llave = llaves[i];
+    stringFinal += `${llave}${listaCount[llave]}`;
+  }
+
+  return stringFinal;
 }
+
+countWords(array);
